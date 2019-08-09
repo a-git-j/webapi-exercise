@@ -10,16 +10,16 @@ Solution consists of a number of ASP.NET MVC Core 2.1 web APIs:
  * Accounts - service for managing customer's account operations
 
 ```
-<div>Please note, there is a number of simplifications in application functional scope (e.g. scope of information 
+Please note, there is a number of simplifications in application functional scope (e.g. scope of information 
 and capabilities served), and technical implementation (e.g. in-memory data persistence or inattentive error handling
-or error response).</div>
+or error response).
 
-<div>At the same time, with a dumbed-down scope, you might notice somewhat of an overkill with projects number and structure: 
+At the same time, with a dumbed-down scope, you might notice somewhat of an overkill with projects number and structure: 
 the goal in here has been to demonstrate larger scale backend solution layering, supposedly driven by different dev teams 
-in different pipelines. </div>
+in different pipelines.
 
-<div>Would the goal be to write example single API to show your bookshelf content, don't go where I have, 
-you're most likely fine with much more cleaner-neater-smaller design.</div>
+Would the goal be to write example single API to show your bookshelf content, don't go where I have, 
+you're most likely fine with much more cleaner-neater-smaller design.
 ```
 
 ### Development/Interactive testing urls
@@ -39,8 +39,8 @@ Many developers find it useful to use the cross-platform Postman tool (https://w
 You can take advantage of Gitlab pipeline using the simple .gitlab-ci.yml files, that covers: build, test, publish and deploy stages. Please note, deploy stage is arbitrary, as such pipelines here only mock it.
 
 ```
-<div>Please note, in the real world Customers, Transactions, Accounts and Shared would make it to different repositories. 
-Would the APIs and shared packages be versioned, four independent pipelines were applicable.</div>
+Please note, in the real world Customers, Transactions, Accounts and Shared would make it to different repositories. 
+Would the APIs and shared packages be versioned, four independent pipelines were applicable.
 ```
 
 ### <del>Greatest regrets</del> Areas for improvements 
