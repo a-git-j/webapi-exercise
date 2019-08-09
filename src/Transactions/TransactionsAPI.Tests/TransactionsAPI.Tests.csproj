@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="5.7.0" />
+    <PackageReference Include="Moq" Version="4.12.0" />
+    <PackageReference Include="nunit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.14.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\SimpleWebApi.Core\SimpleWebApi.Core.csproj" />
+    <ProjectReference Include="..\TransactionsAPI.Domain\TransactionsAPI.Domain.csproj" />
+    <ProjectReference Include="..\TransactionsAPI.Infrastructure\TransactionsAPI.Infrastructure.csproj" />
+    <ProjectReference Include="..\TransactionsAPI\TransactionsAPI.csproj" />
+  </ItemGroup>
+
+</Project>

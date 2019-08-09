@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Http.Polly" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\SimpleWebApi.Core.Web\SimpleWebApi.Core.Web.csproj" />
+    <ProjectReference Include="..\AccountsAPI.Domain\AccountsAPI.Domain.csproj" />
+    <ProjectReference Include="..\..\Shared\SimpleWebApi.Core\SimpleWebApi.Core.csproj" />
+  </ItemGroup>
+
+</Project>

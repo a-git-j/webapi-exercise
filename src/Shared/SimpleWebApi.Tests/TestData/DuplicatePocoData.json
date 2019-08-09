@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "OtherProperty": "a"
+  },
+  {
+    "Id": 2,
+    "OtherProperty": "b"
+  },
+  {
+    "Id": 2,
+    "OtherProperty": "bdup"
+  },
+  {
+    "Id": 3,
+    "OtherProperty": "c"
+  },
+  {
+    "Id": 3,
+    "OtherProperty": "cdup"
+  },
+  {
+    "Id": 66,
+    "OtherProperty": "z"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "Property1": 1,
+    "Property2": "a"
+  },
+  {
+    "Property1": 2,
+    "Property2": "b"
+  },
+  {
+    "Property1": 3,
+    "Property2": "c"
+  },
+  {
+    "Property1": 66,
+    "Property2": "z"
+  }
+]

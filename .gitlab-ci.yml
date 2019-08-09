@@ -1,0 +1,75 @@
+image: mcr.microsoft.com/dotnet/core/sdk:2.1 
+
+stages: 
+ - build
+ - test
+ - publish
+ - deploy
+
+variables:
+ runtime: "win-x64"
+
+before_script:
+ - "cd src"
+# - "export https_proxy="
+# - "export http_proxy="
+  
+build-app:
+ stage: build 
+ artifacts:
+   untracked: true
+   expire_in: 30 mins
+   paths:
+   - "_build"
+ script:
+ - "dotnet restore"
+ - "dotnet build --no-restore -o _build -c Release"
+ allow_failure: false
+ tags:
+  - shared-docker
+
+run-test:
+ stage: test 
+ script:
+  - "cd Accounts/AccountsAPI.Tests" 
+  - "dotnet test -c Release"
+  - "cd Customers/CustomersAPI.Tests" 
+  - "dotnet test -c Release"
+  - "cd Transactions/TransactionsAPI.Tests" 
+  - "dotnet test -c Release"
+  - "cd Shared/SimpleWebApi.Tests" 
+  - "dotnet test -c Release"
+ when: on_success
+ allow_failure: false
+ tags:
+  - shared-docker
+
+publish-app:
+ stage: publish
+ artifacts:
+   untracked: true
+   expire_in: 1 day
+   paths:
+   - _customersPub
+   - _transactionsPub
+   - _accountsPub
+ script: 
+ - "dotnet publish Customers/CustomersAPI.csproj -o _customersPub -c Release"
+ - "dotnet publish Transactions/TransactionsAPI.csproj -o _transactionsPub -c Release"
+ - "dotnet publish Accounts/AccountsAPI.csproj -o _accountsPub -c Release"
+ when: on_success
+ allow_failure: false
+ tags:
+  - shared-docker
+  
+deploy-staging:
+ stage: deploy
+ script:
+  - echo "Mock stage deployment from artifacts path to target hosting"
+ only:
+  - develop
+ when: on_success
+ allow_failure: false
+ tags:
+  - shared-docker
+

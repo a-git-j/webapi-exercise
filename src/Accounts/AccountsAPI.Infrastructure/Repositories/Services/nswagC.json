@@ -1,0 +1,62 @@
+﻿{
+  "x-generator": "NSwag v13.0.4.0 (NJsonSchema v10.0.21.0 (Newtonsoft.Json v12.0.0.0))",
+  "swagger": "2.0",
+  "info": {
+    "title": "Customers API",
+    "description": "A simple ASP.NET Core web API for serving customers information",
+    "termsOfService": "None",
+    "version": "v1"
+  },
+  "produces": [
+    "text/plain",
+    "application/json",
+    "text/json"
+  ],
+  "paths": {
+    "/api/Customers/{customerId}": {
+      "get": {
+        "tags": [
+          "Customers"
+        ],
+        "summary": "Gets information about existing customer",
+        "operationId": "Customers_Get",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "description": "Customer identifier",
+            "format": "int32",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "Existing customer information",
+            "schema": {
+              "$ref": "#/definitions/CustomerViewModel"
+            }
+          },
+          "404": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CustomerViewModel": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "surname": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

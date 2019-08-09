@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 1,
+    "OtherProperty": "a"
+  },
+  {
+    "Id": 2,
+    "OtherProperty": "b"
+  },
+  {
+    "Id": 3,
+    "OtherProperty": "c"
+  },
+  {
+    "Id": 66,
+    "OtherProperty": "z"
+  }
+]

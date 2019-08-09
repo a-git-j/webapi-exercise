@@ -1,0 +1,294 @@
+﻿{
+  "x-generator": "NSwag v13.0.4.0 (NJsonSchema v10.0.21.0 (Newtonsoft.Json v12.0.0.0))",
+  "swagger": "2.0",
+  "info": {
+    "title": "Transactions API",
+    "description": "A simple ASP.NET Core web API for serving account's transactions",
+    "termsOfService": "None",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Transactions/{accountId}": {
+      "get": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Lists all transactions associated with the account\n            ",
+        "operationId": "Transactions_Get",
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "accountId",
+            "in": "path",
+            "required": true,
+            "description": "Account number",
+            "format": "int32",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TransactionViewModel"
+              }
+            }
+          },
+          "400": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SimpleWebApiExceptionBase"
+            }
+          }
+        }
+      }
+    },
+    "/api/Transactions": {
+      "post": {
+        "tags": [
+          "Transactions"
+        ],
+        "summary": "Registers transaction against given account\n            ",
+        "operationId": "Transactions_New",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "transaction",
+            "in": "body",
+            "required": true,
+            "description": "Account number and transaction amount specification",
+            "schema": {
+              "$ref": "#/definitions/TransactionViewModel"
+            },
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "x-nullable": false,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/SimpleWebApiExceptionBase"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "TransactionViewModel": {
+      "type": "object",
+      "required": [
+        "accountId",
+        "amount"
+      ],
+      "properties": {
+        "accountId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "amount": {
+          "type": "number",
+          "format": "double"
+        }
+      }
+    },
+    "SimpleWebApiExceptionBase": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Exception"
+        },
+        {
+          "type": "object",
+          "x-abstract": true,
+          "required": [
+            "statusCode"
+          ],
+          "properties": {
+            "statusCode": {
+              "$ref": "#/definitions/HttpStatusCode"
+            }
+          }
+        }
+      ]
+    },
+    "HttpStatusCode": {
+      "type": "integer",
+      "description": "",
+      "x-enumNames": [
+        "Continue",
+        "SwitchingProtocols",
+        "Processing",
+        "EarlyHints",
+        "OK",
+        "Created",
+        "Accepted",
+        "NonAuthoritativeInformation",
+        "NoContent",
+        "ResetContent",
+        "PartialContent",
+        "MultiStatus",
+        "AlreadyReported",
+        "IMUsed",
+        "MultipleChoices",
+        "Ambiguous",
+        "MovedPermanently",
+        "Moved",
+        "Found",
+        "Redirect",
+        "SeeOther",
+        "RedirectMethod",
+        "NotModified",
+        "UseProxy",
+        "Unused",
+        "TemporaryRedirect",
+        "RedirectKeepVerb",
+        "PermanentRedirect",
+        "BadRequest",
+        "Unauthorized",
+        "PaymentRequired",
+        "Forbidden",
+        "NotFound",
+        "MethodNotAllowed",
+        "NotAcceptable",
+        "ProxyAuthenticationRequired",
+        "RequestTimeout",
+        "Conflict",
+        "Gone",
+        "LengthRequired",
+        "PreconditionFailed",
+        "RequestEntityTooLarge",
+        "RequestUriTooLong",
+        "UnsupportedMediaType",
+        "RequestedRangeNotSatisfiable",
+        "ExpectationFailed",
+        "MisdirectedRequest",
+        "UnprocessableEntity",
+        "Locked",
+        "FailedDependency",
+        "UpgradeRequired",
+        "PreconditionRequired",
+        "TooManyRequests",
+        "RequestHeaderFieldsTooLarge",
+        "UnavailableForLegalReasons",
+        "InternalServerError",
+        "NotImplemented",
+        "BadGateway",
+        "ServiceUnavailable",
+        "GatewayTimeout",
+        "HttpVersionNotSupported",
+        "VariantAlsoNegotiates",
+        "InsufficientStorage",
+        "LoopDetected",
+        "NotExtended",
+        "NetworkAuthenticationRequired"
+      ],
+      "enum": [
+        100,
+        101,
+        102,
+        103,
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206,
+        207,
+        208,
+        226,
+        300,
+        300,
+        301,
+        301,
+        302,
+        302,
+        303,
+        303,
+        304,
+        305,
+        306,
+        307,
+        307,
+        308,
+        400,
+        401,
+        402,
+        403,
+        404,
+        405,
+        406,
+        407,
+        408,
+        409,
+        410,
+        411,
+        412,
+        413,
+        414,
+        415,
+        416,
+        417,
+        421,
+        422,
+        423,
+        424,
+        426,
+        428,
+        429,
+        431,
+        451,
+        500,
+        501,
+        502,
+        503,
+        504,
+        505,
+        506,
+        507,
+        508,
+        510,
+        511
+      ]
+    },
+    "Exception": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "innerException": {
+          "$ref": "#/definitions/Exception"
+        },
+        "stackTrace": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
